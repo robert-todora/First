@@ -44,7 +44,7 @@ def response(user_response):
     else:
         robo_response = robo_response+sent_tokens[idx]
         return robo_responseflag=True
-print("ROBO: My name is Robo. I will answer your queries about Chatbots. If you want to exit, type Bye!")
+print("Hello. I are now your personal punching bag.If you want to exit, type Bye!")
 while(flag==True):
     user_response = input()
     user_response=user_response.lower()
@@ -62,3 +62,7 @@ while(flag==True):
     else:
         flag=False
         print("ROBO: Bye! take care..")
+        
+        
+
+    

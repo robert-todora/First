@@ -11,7 +11,8 @@ nltk.download('punkt')  # first-time use only
 nltk.download('wordnet')  # first-time use only
 sent_tokens = nltk.sent_tokenize(raw)  # converts to list of sentences
 word_tokens = nltk.word_tokenize(raw)  # converts to list of words
-
+sent_tokens[:2]
+word_tokens[:2]
 lemmer = nltk.stem.WordNetLemmatizer()
 
 
@@ -35,7 +36,9 @@ def greeting(sentence):
     for word in sentence.split():
         if word.lower() in GREETING_INPUTS:
             return random.choice(GREETING_RESPONSES)
-        from sklearn.feature_extraction.text import TfidfVectorizer
+
+
+from sklearn.feature_extraction.text import TfidfVectorizer
 
 
 from sklearn.metrics.pairwise import cosine_similarity
@@ -44,7 +47,9 @@ from sklearn.metrics.pairwise import cosine_similarity
 def response(user_response):
     robo_response = ''
     sent_tokens.append(user_response)
-    TfidfVec = TfidfVectorizer(tokenizer=LemNormalize, stop_words='english')
+
+    TfidfVec = TfidfVectorizer(tokenizer=LemNormalize,
+ stop_words='english')
     tfidf = TfidfVec.fit_transform(sent_tokens)
     vals = cosine_similarity(tfidf[-1], tfidf)
     idx = vals.argsort()[0][-2]
@@ -78,5 +83,7 @@ while (flag == True):
     else:
         flag = False
         print("ROBO: Bye! take care..")
+
+
 
 
